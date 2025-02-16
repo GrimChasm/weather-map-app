@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live US Weather App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-    </style>
+    <title>Live US Weather Map</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h1>🌤️ Live US Weather Map 🌡️</h1>
-    <p>Real-time weather updates for major US cities.</p>
-    <div id="weather-map">
-        <p>Loading weather data...</p>
-    </div>
+    <h1>Live US Weather Map</h1>
+    
+    <div id="weather-map"></div>
+    
+    <script>
+        var graphJSON = {{ graph_json | safe }};
+        Plotly.newPlot('weather-map', graphJSON.data, graphJSON.layout);
+    </script>
 </body>
 </html>
+
