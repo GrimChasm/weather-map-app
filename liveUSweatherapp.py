@@ -9,7 +9,6 @@ from dotenv import load_dotenv
 from config import Config  # Import config settings
 from flask import Flask, render_template
 import plotly.io as pio
-from weather_map import WeatherMap  # Import your WeatherMap class
 
 app = Flask(__name__)
 
