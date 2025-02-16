@@ -5,4 +5,3 @@ gunicorn
 python-dotenv
 flask
 config
-weather_map
