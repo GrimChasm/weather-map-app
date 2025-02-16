@@ -3,3 +3,5 @@ pandas
 plotly
 gunicorn
 python-dotenv
+flask
+config
