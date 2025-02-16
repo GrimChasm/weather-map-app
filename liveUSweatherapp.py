@@ -6,18 +6,18 @@ from datetime import datetime
 import time
 import os
 from dotenv import load_dotenv
-from flask import Flask
 from config import Config  # Import config settings
+from flask import Flask, render_template
 
-app = Flask("liveUSweatherapp")  # Project name here
-app.config.from_object(Config)  # Load config settings
+app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Hello, World! Live US Weather App is running!"
+    return render_template('index.html')  # Serve the HTML page
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
 
 
 
