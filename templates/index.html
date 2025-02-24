@@ -11,10 +11,13 @@
     
     <div id="weather-map"></div>
     
+<div id="chart"></div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script>
         var graphJSON = {{ graph_json | safe }};
-        Plotly.newPlot('weather-map', graphJSON.data, graphJSON.layout);
+        Plotly.newPlot('chart', JSON.parse(graphJSON).data, JSON.parse(graphJSON).layout);
     </script>
+
 </body>
 </html>
 
