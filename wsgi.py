@@ -1,4 +1,3 @@
-from liveUSweatherapp import app
-
-if __name__ == "__main__":
+if __name__ == '__main__':
+    from liveUSweatherapp import app
     app.run()
