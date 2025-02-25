@@ -9,15 +9,21 @@
 <body>
     <h1>Live US Weather Map</h1>
     
-    <div id="weather-map"></div>
-    
-<div id="chart"></div>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <div id="chart"></div>
+
     <script>
-        var graphJSON = {{ graph_json | safe }};
-        Plotly.newPlot('chart', JSON.parse(graphJSON).data, JSON.parse(graphJSON).layout);
+        // Ensure Flask data is properly inserted into JavaScript
+        var graphJSON = {{ graph_json | tojson | safe }};
+
+        try {
+            var parsedData = JSON.parse(graphJSON);
+            Plotly.newPlot('chart', parsedData.data, parsedData.layout);
+        } catch (error) {
+            console.error("Error parsing Plotly graph data:", error);
+        }
     </script>
 
 </body>
 </html>
+
 
