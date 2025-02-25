@@ -10,29 +10,6 @@ from config import Config  # Import config settings
 from flask import Flask, render_template
 import plotly.io as pio
 
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    # Fetch weather data
-    weather = WeatherMap()
-    data = weather.fetch_weather_data()
-    fig = weather.create_map(data)
-
-    # Convert Plotly figure to JSON
-    graph_json = pio.to_json(fig)
-
-    # Pass JSON to the template
-    return render_template('index.html', graph_json=graph_json)
-
-
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # Use Render's assigned port or default to 5000
-    app.run(host='0.0.0.0', port=port, debug=False)
-
-
-
-
 # Load environment variables
 load_dotenv()
 
